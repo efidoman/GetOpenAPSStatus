@@ -23,8 +23,11 @@ let glucose = getValue(glucoseJSON[0],"glucose")
 let direction = getValue(glucoseJSON[0],"direction")
 let dateString = getValue(glucoseJSON[0],"dateString")
 
+let bgDate = new Date(dateString)
 
-let openapsStatus = dateString + "BG=" + glucose + " Direction=" + direction + " IOB=" + iob + " COB=" + cob + " Tick=" + tick + " Temp Rate=" + tempRate + " for " + tempDuration + " minutes battery = " + batteryPercentage
+
+
+let openapsStatus = dateString + "BG=" + glucose + " Direction=" + direction + " IOB=" + iob + " COB=" + cob + " Tick=" + tick + " Temp Rate=" + tempRate + " for " + tempDuration + " minutes battery = " + batteryPercentage + " date = " + bgDate.toLocaleString()
 
 let openapsStatusSpeach = "At " + dateString + " glucose is at " + glucose + " changed " + tick + " from last reading. The direction is " + direction + ". Carbs on board is " + cob + ". Insulin on board is " + iob + ". Temp basal of " + tempRate + " set for " + tempDuration + " minutes." + "Rig Battery is at " + batteryPercentage + " percent."
 
