@@ -11,7 +11,8 @@ This is javascript code that can be cut-n-paste into the IOS Scriptable app in o
 # Requirements
 * Download IOS Scriptable app on iphone or ipad.
 * Click + button to create a new script
-* Cut-n-paste the javascript code into the new script.
+* Cut-n-paste the javascript code from OpenAPSStatus.js into the new script.
+* Change the IP address variable baseURL to your rig's IP address
 * Name the new script "GetOpenAPSStatus" with no spaces.
 * Optional Setup Below
 * Click the script settings menu (icon upper left under the Done label)
