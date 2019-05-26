@@ -27,7 +27,7 @@ let bgDate = new Date(dateString)
 
 
 
-let openapsStatus = dateString + "BG=" + glucose + " Direction=" + direction + " IOB=" + iob + " COB=" + cob + " Tick=" + tick + " Temp Rate=" + tempRate + " for " + tempDuration + " minutes battery = " + batteryPercentage + " date = " + bgDate.toLocaleString()
+let openapsStatus = bgDate.toLocaleString() + " BG=" + glucose + " Direction=" + direction + " IOB=" + iob + " COB=" + cob + " Tick=" + tick + " Temp Rate=" + tempRate + " for " + tempDuration + " minutes battery = " + batteryPercentage + " date = " + bgDate.toLocaleString()
 
 let openapsStatusSpeach = "At " + dateString + " glucose is at " + glucose + " changed " + tick + " from last reading. The direction is " + direction + ". Carbs on board is " + cob + ". Insulin on board is " + iob + ". Temp basal of " + tempRate + " set for " + tempDuration + " minutes." + "Rig Battery is at " + batteryPercentage + " percent."
 
@@ -44,7 +44,7 @@ dt15.setMinutes(dt15.getMinutes() + 15)
 var dt5 = new Date()
 dt15.setMinutes(dt15.getMinutes() + 5)
 
-evt.startDate = dtNow
+evt.startDate = bgDate
 evt.endDate = dt15
 evt.save()
 
