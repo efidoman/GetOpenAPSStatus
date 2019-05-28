@@ -42,7 +42,7 @@ var dtNow = new Date()
 var dt15 = new Date()
 dt15.setMinutes(dt15.getMinutes() + 15)
 var dt5 = new Date()
-dt15.setMinutes(dt15.getMinutes() + 5)
+dt5.setMinutes(dt15.getMinutes() + 5)
 
 evt.startDate = bgDate
 evt.endDate = dt15
