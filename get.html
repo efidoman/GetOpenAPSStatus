@@ -1,0 +1,61 @@
+<html>
+<body>
+<script>
+
+
+	function onError(e) {
+		document.write("e" + JSON.stringify(e));
+	}
+
+	function onComplete(s) {
+		document.write(JSON.stringify(s));
+	}
+
+//works
+//httpGet("http://worldclockapi.com/api/json/est/now", onError, onComplete)
+// does not work, darn
+httpGet("http://192.168.86.52/cob", onError, onComplete)
+//httpGet("http://eddie1/sgv.json", onError, onComplete)
+
+   /**
+ * GET contents of a URL
+ * @access private
+ * @param {string} url - url to get
+ * @param {function} error - function to call if there is an error
+ * @param {function} callback - function to call if success
+ * @returns {void}
+ */
+function httpGet(url, error, callback) {
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET', url);
+    xhr.withCredentials = true;
+    //xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.timeout = 10000;
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200 || (xhr.status === 0 && xhr.responseText !== '')) {
+                callback({
+                    url: url,
+                    status: 200,
+                    body: xhr.responseText + xhr.responseXML + " ready state = " + xhr.readyState // || ''
+                });
+            }
+            else {
+                error({
+                    url: url,
+                    status: xhr.status,
+                    body: xhr.responseText  + xhr.responseXML + " ready state = " + xhr.readyState 
+                });
+            }
+        }
+    };
+
+    xhr.send();
+}
+</script>
+</body>
+</html>
